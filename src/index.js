@@ -1,15 +1,14 @@
-const { faker } = require("@faker-js/faker")
-
-const users = [...Array(50)].map((_, i) => ({
-  userId: faker.datatype.uuid(),
-  username: faker.internet.userName(),
-  email: faker.internet.email(),
-  avatar: faker.image.avatar(),
-  password: faker.internet.password(),
-  birthdate: faker.date.birthdate(),
-  registeredAt: faker.date.past(),
-}))
+const users = require("./generator")
+const renderer = require("./renderer")
 
 console.log(users)
 
-module.exports = users
+const userList = document.querySelector("#user-list")
+
+const render = () => {
+  renderer(userList, users, window.location.hash.slice(1))
+}
+
+window.addEventListener("hashchange", render)
+
+render()
