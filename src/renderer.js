@@ -1,16 +1,16 @@
-const html = require("html-template-tag")
-
-const render = function (userList, users, hash) {
+// export
+const renderer = function (userList, users, hash) {
   const component = users
     .map((user, index) => {
-      return `<li><a href="#${index}">${user.username}</a>
-      ${
-        parseInt(hash) === index
-          ? `<div style="margin-top:10px"><img width="100" src="${
-              user.avatar
-            }" float><pre>${JSON.stringify(user, null, 4)}</pre></div>`
-          : ""
-      }
+      return `<li>
+        <a href="#${index}">${user.username}</a>
+        ${
+          parseInt(hash) === index
+            ? `<div style="margin-top:10px"><img width="100" src="${
+                user.avatar
+              }" float><pre>${JSON.stringify(user, null, 4)}</pre></div>`
+            : ""
+        }
       </li>`
     })
     .join("")
@@ -20,4 +20,4 @@ const render = function (userList, users, hash) {
   userList.innerHTML = component
 }
 
-module.exports = render
+module.exports = { renderer }

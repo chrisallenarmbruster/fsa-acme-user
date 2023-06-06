@@ -1,5 +1,7 @@
 const { faker } = require("@faker-js/faker")
+// import { faker } from "@faker-js/faker"
 
+// export
 const users = [...Array(50)].map((_, i) => ({
   userId: faker.datatype.uuid(),
   username: faker.internet.userName(),
@@ -12,4 +14,4 @@ const users = [...Array(50)].map((_, i) => ({
 
 console.log(users)
 
-module.exports = users
+module.exports = { users }

@@ -1,5 +1,7 @@
-const users = require("./generator")
-const renderer = require("./renderer")
+const { users } = require("./generator")
+// import { users } from "./generator"
+const { renderer } = require("./renderer")
+// import { renderer } from "./renderer"
 
 console.log(users)
 
